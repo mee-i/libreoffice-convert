@@ -55,6 +55,7 @@ const convertWithOptions = (document, format, filter, options, callback) => {
             let args = [];
             args.push(`-env:UserInstallation=${url.pathToFileURL(installDir.name)}`);
             args.push('--headless');
+            args.push('--nologo');
             args.push('--convert-to');
             args.push(fmt);
             args.push('--outdir');
