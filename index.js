@@ -64,7 +64,7 @@ const convertWithOptions = (document, format, filter, options, callback) => {
           
             return execFile(results.soffice, args, execOptions, (err, stdout, stderr) => {
                 // warnings might also be emitted to stderr
-                if (stderr && stderr.toLowerCase().includes('error'))
+                if (stderr && stderr.toLowerCase().includes('error') && !stderr.toLowerCase().includes('document is empty'))
                     callback(new Error('Error calling soffice: ' + stderr));
                 else callback(err, stdout, stderr);
             });
